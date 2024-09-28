@@ -1,0 +1,7 @@
+resources:
+  - ../base
+
+patches:
+  - path: patch_app1_helm.yaml
+    target:
+      kind: HelmRelease

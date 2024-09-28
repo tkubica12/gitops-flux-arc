@@ -1,0 +1,28 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: app1
+  namespace: app1
+spec:
+  interval: 1m
+  releaseName: app1
+  chart:
+    spec:
+      chart: apps/charts/app1
+      sourceRef:
+        kind: GitRepository
+        name: amyrepo
+  values:
+    replicaCount: 2
+
+    image:
+      repository: ghcr.io/tkubica12/gitops-flux-arc/pod_hello
+      tag: 1
+
+    resources:
+      limits:
+        cpu: 100m
+        memory: 128Mi
+      requests:
+        cpu: 20m
+        memory: 32Mi

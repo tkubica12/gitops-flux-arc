@@ -1,0 +1,6 @@
+resources:
+  - app1_helm.yaml
+  - namespace.yaml
+  - repository.yaml
+
+namespace: app1
