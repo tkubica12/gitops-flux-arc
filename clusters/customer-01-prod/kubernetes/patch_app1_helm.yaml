@@ -5,4 +5,4 @@ metadata:
   namespace: app1
 spec:
   values:
-    replicas: 5
+    replicaCount: 5
