@@ -13,7 +13,7 @@ namespace = os.getenv("NAMESPACE")
 pod_name = os.getenv("POD_NAME")
 pod_id = os.getenv("POD_ID")
 cluster_name = os.getenv("CLUSTER_NAME")
-app_version = "1.0.0"
+app_version = "2.0.0"
 
 @app.get("/")
 async def info():
