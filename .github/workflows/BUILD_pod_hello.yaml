@@ -26,4 +26,4 @@ jobs:
       with:
         context: src/pod_hello
         push: true
-        tags: ghcr.io/${{ github.repository }}/pod_hello:latest
+        tags: ghcr.io/${{ github.repository }}/pod_hello:${{ github.run_number }}
