@@ -11,7 +11,7 @@ spec:
       chart: apps/charts/app1
       sourceRef:
         kind: GitRepository
-        name: amyrepo
+        name: myrepo
   values:
     replicaCount: 2
 
