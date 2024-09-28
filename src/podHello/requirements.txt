@@ -1,0 +1,4 @@
+fastapi
+uuid
+uvicorn
+python-dotenv
