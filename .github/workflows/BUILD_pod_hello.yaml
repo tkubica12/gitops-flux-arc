@@ -1,9 +1,9 @@
-name: BUILD podHello
+name: BUILD pod_hello
 
 on:
   push:
     paths:
-      - 'src/podHello/**'
+      - 'src/pod_hello/**'
   workflow_dispatch: 
 
 jobs:
@@ -24,6 +24,6 @@ jobs:
     - name: Build and push Docker image
       uses: docker/build-push-action@v2
       with:
-        context: src/podHello
+        context: src/pod_hello
         push: true
-        tags: ghcr.io/${{ github.repository }}/podHello:latest
+        tags: ghcr.io/${{ github.repository }}/pod_hello:latest
