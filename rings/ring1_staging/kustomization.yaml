@@ -1,5 +1,5 @@
 resources:
-  - ../../apps1/app1/staging
+  - ../../apps/app1/staging
 
 patches:
   - path: patch_app1_helm.yaml
