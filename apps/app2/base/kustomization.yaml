@@ -2,4 +2,4 @@ resources:
   - app_helm.yaml
   - repository.yaml
 
-namespace: app1
+namespace: apps
