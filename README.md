@@ -33,16 +33,10 @@ graph LR
     end
 
     subgraph infra
-        subgraph ingress
-            ingress-prod -->|patches| ingress-base
-            ingress-staging -->|patches| ingress-base
-            ingress-base -->|loads Helm Chart| nginx-ingress-chart
-        end 
-        subgraph cert-manager
-            cert-manager-prod -->|patches| cert-manager-base
-            cert-manager-staging -->|patches| cert-manager-base
-            cert-manager-base -->|loads Helm Chart| cert-manager-chart
-        end
+        infra-production -->|patches| infra-base
+        infra-staging -->|patches| infra-base
+        infra-base -->|loads Helm Chart| nginx-ingress
+        infra-base -->|loads Helm Chart| cert-manager
     end
 
     subgraph apps
@@ -70,12 +64,9 @@ graph LR
     apps-state-customer-01-staging -->|patches| apps-ring1-staging
     apps-state-customer-02-prod -->|patches| apps-ring2-earlyadopters
 
-    infra-state-customer-01-prod -->|patches| ingress-prod
-    infra-state-customer-01-prod -->|patches| cert-manager-prod
-    infra-state-customer-01-staging -->|patches| ingress-staging
-    infra-state-customer-01-staging -->|patches| cert-manager-staging
-    infra-state-customer-02-prod -->|patches| ingress-prod
-    infra-state-customer-02-prod -->|patches| cert-manager-prod
+    infra-state-customer-01-prod -->|patches| infra-production
+    infra-state-customer-01-staging -->|patches| infra-staging
+    infra-state-customer-02-prod -->|patches| infra-production
 
     apps-ring0-internal -->|patches| app1-staging
     apps-ring1-staging -->|patches| app1-staging

@@ -1,7 +1,7 @@
 apiVersion: source.toolkit.fluxcd.io/v1beta2
 kind: GitRepository
 metadata:
-  name: myrepo
+  name: repo-app2
 spec:
   interval: 5m
   url: https://github.com/tkubica12/gitops-flux-arc

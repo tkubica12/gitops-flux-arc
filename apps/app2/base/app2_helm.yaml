@@ -10,7 +10,7 @@ spec:
       chart: apps/charts/app2
       sourceRef:
         kind: GitRepository
-        name: myrepo
+        name: repo-app2
   values:
     replicaCount: 2
 
