@@ -4,10 +4,11 @@ resource "azurerm_resource_group" "main" {
 }
 
 resource "azurerm_kubernetes_cluster" "main" {
-  name                = "tomks-${var.cluster_name}"
-  location            = var.location
-  resource_group_name = azurerm_resource_group.main.name
-  dns_prefix          = "tomks-${var.cluster_name}"
+  name                 = "tomks-${var.cluster_name}"
+  location             = var.location
+  resource_group_name  = azurerm_resource_group.main.name
+  dns_prefix           = "tomks-${var.cluster_name}"
+  azure_policy_enabled = true
 
   default_node_pool {
     name       = "default"
@@ -17,6 +18,12 @@ resource "azurerm_kubernetes_cluster" "main" {
 
   identity {
     type = "SystemAssigned"
+  }
+
+  lifecycle {
+    ignore_changes = [
+      default_node_pool[0].upgrade_settings
+    ]
   }
 }
 
