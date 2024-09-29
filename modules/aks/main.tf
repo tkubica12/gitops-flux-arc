@@ -27,7 +27,7 @@ resource "azurerm_kubernetes_cluster_extension" "flux" {
 }
 
 resource "azurerm_kubernetes_flux_configuration" "apps" {
-  name       = "main"
+  name       = "apps"
   cluster_id = azurerm_kubernetes_cluster.main.id
   namespace  = "apps"
   scope      = "namespace"
@@ -52,7 +52,7 @@ resource "azurerm_kubernetes_flux_configuration" "apps" {
 }
 
 resource "azurerm_kubernetes_flux_configuration" "infra" {
-  name       = "main"
+  name       = "infra"
   cluster_id = azurerm_kubernetes_cluster.main.id
   namespace  = "infra"
   scope      = "namespace"
