@@ -1,5 +1,7 @@
 resources:
-  - nginx-ingress.yaml
-  - repository-nginx-ingress.yaml
+  - nginx_ingress.yaml
+  - repository_nginx_ingress.yaml
+  - cert_manager.yaml
+  - repository_cert_manager.yaml
 
 namespace: infra
