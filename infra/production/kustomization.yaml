@@ -1,2 +1,7 @@
 resources:
   - ../base
+
+patches:
+  - path: patch_nginx_ingress.yaml
+    target:
+      kind: HelmRelease
