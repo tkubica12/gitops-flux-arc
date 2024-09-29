@@ -1,0 +1,5 @@
+resources:
+  - nginx-ingress.yaml
+  - repository-nginx-ingress.yaml
+
+namespace: infra
