@@ -26,23 +26,48 @@ resource "azurerm_kubernetes_cluster_extension" "flux" {
   extension_type = "microsoft.flux"
 }
 
-resource "azurerm_kubernetes_flux_configuration" "main" {
+resource "azurerm_kubernetes_flux_configuration" "apps" {
   name       = "main"
   cluster_id = azurerm_kubernetes_cluster.main.id
-  namespace  = "app1"
+  namespace  = "apps"
   scope      = "namespace"
 
   git_repository {
     url                      = "https://github.com/tkubica12/gitops-flux-arc"
     reference_type           = "branch"
     reference_value          = "main"
-    sync_interval_in_seconds = 300
+    sync_interval_in_seconds = 60
   }
 
   kustomizations {
-    name                     = "main"
-    path                     = "/clusters/${var.cluster_name}/kubernetes"
-    sync_interval_in_seconds = 300
+    name                     = "apps"
+    path                     = "/clusters/${var.cluster_name}/apps"
+    sync_interval_in_seconds = 60
+    recreating_enabled       = true
+  }
+
+  depends_on = [
+    azurerm_kubernetes_cluster_extension.flux
+  ]
+}
+
+resource "azurerm_kubernetes_flux_configuration" "infra" {
+  name       = "main"
+  cluster_id = azurerm_kubernetes_cluster.main.id
+  namespace  = "infra"
+  scope      = "namespace"
+
+  git_repository {
+    url                      = "https://github.com/tkubica12/gitops-flux-arc"
+    reference_type           = "branch"
+    reference_value          = "main"
+    sync_interval_in_seconds = 60
+  }
+
+  kustomizations {
+    name                     = "infra"
+    path                     = "/clusters/${var.cluster_name}/infra"
+    sync_interval_in_seconds = 60
     recreating_enabled       = true
   }
 

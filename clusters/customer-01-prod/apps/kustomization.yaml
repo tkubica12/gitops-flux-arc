@@ -5,3 +5,6 @@ patches:
   - path: patch_app1_helm.yaml
     target:
       kind: HelmRelease
+  - path: patch_app2_helm.yaml
+    target:
+      kind: HelmRelease
