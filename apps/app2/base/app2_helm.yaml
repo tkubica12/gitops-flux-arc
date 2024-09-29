@@ -4,7 +4,7 @@ metadata:
   name: app2
 spec:
   interval: 1m
-  releaseName: app1
+  releaseName: app2
   chart:
     spec:
       chart: apps/charts/app2

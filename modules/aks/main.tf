@@ -22,7 +22,8 @@ resource "azurerm_kubernetes_cluster" "main" {
 
   lifecycle {
     ignore_changes = [
-      default_node_pool[0].upgrade_settings
+      default_node_pool[0].upgrade_settings,
+      microsoft_defender
     ]
   }
 }
@@ -62,7 +63,7 @@ resource "azurerm_kubernetes_flux_configuration" "infra" {
   name       = "infra"
   cluster_id = azurerm_kubernetes_cluster.main.id
   namespace  = "infra"
-  scope      = "namespace"
+  scope      = "cluster"
 
   git_repository {
     url                      = "https://github.com/tkubica12/gitops-flux-arc"
