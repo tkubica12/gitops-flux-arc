@@ -1,7 +1,10 @@
 resources:
   - ../../apps/app1/production
+  - ../../apps/app2/production
 
 patches:
   - path: patch_app1_helm.yaml
-    target:
-      kind: HelmRelease
+  - path: patch_app2_helm.yaml
+
+  
+  
