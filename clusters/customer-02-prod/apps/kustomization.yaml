@@ -1,5 +1,5 @@
 resources:
-  - ../../../rings/ring3-mainstream
+  - ../../../rings/ring2-earlyadopters
 
 patches:
   - path: patch_app1_helm.yaml

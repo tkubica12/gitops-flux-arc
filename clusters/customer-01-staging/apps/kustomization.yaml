@@ -1,5 +1,5 @@
 resources:
-  - ../../../rings/ring3-mainstream
+  - ../../../rings/ring1_staging
 
 patches:
   - path: patch_app1_helm.yaml
