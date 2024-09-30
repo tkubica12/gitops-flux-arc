@@ -1,3 +1,5 @@
 resources:
   - app2_helm.yaml
   - repository.yaml
+
+namespace: apps
