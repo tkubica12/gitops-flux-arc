@@ -2,7 +2,6 @@ apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
   name: app2
-  namespace: app2
 spec: 
   values:
     replicaCount: 3
