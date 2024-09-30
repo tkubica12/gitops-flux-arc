@@ -3,3 +3,5 @@ resources:
 
 patches:
   - path: patch_app2_helm.yaml
+    target:
+      kind: HelmRelease
